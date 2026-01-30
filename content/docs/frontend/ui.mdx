@@ -45,7 +45,7 @@ function AIAgent({ name, avatar }: { name?: string, avatar?: string }) {
             <div className='flex flex-col gap-2 sm:items-end items-end'>
                 <div className="transition-all duration-300 sm:origin-bottom-right origin-bottom ease-in-out opacity-0 scale-0 hidden"
                     ref={containerRef} >
-                    <ChatContainer isOpen={isOpen} setIsOpen={setIsOpen} avatar={avatar}/>
+                    <ChatContainer isOpen={isOpen} setIsOpen={setIsOpen} name={name} avatar={avatar}/>
                 </div>
                 <Button variant="default"
                     className='rounded-full p-6 w-fit sm:mr-0 mr-5'
@@ -70,10 +70,11 @@ import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { UseGeminiStore } from '@/app/state/use-store-gemini';
 
-function ChatContainer({ isOpen, setIsOpen, avatar }:
+function ChatContainer({ isOpen, setIsOpen, avatar, name }:
     {
         isOpen?: boolean,
         setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
+        name?: string,
         avatar?: string
     }) {
     const { generateResponse, isGenerating, response } = UseGeminiStore();
@@ -116,10 +117,9 @@ function ChatContainer({ isOpen, setIsOpen, avatar }:
                     <div className='flex flex-row items-center gap-2'>
                         <Avatar>
                             <AvatarImage src={avatar} />
-                            <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                         <div className='flex flex-col gap-1'>
-                            <span className='font-bold'>Krave</span>
+                            <span className='font-bold'>{name}</span>
                             <div className='flex flex-row items-center gap-1'>
                                 <div className='w-2 h-2 bg-green-500 rounded-full'></div>
                                 <span className='text-xs'>Active Now</span>
@@ -133,7 +133,7 @@ function ChatContainer({ isOpen, setIsOpen, avatar }:
                 <div className='flex-1 overflow-y-auto space-y-4 p-2 scrollable-div'>
                     <div className='flex flex-col items-start gap-2'>
                         <div className='bg-black dark:bg-white rounded-lg p-4 w-fit max-w-60'>
-                            <span className='text-white dark:text-black text-sm'>Hello! I’m Krave, your friendly AI chatbot assistant. I’m here to answer questions, provide guidance, and chat with you anytime. Ask me anything, and let’s explore and learn together!</span>
+                            <span className='text-white dark:text-black text-sm'>Hello! I’m {name}, your friendly AI chatbot assistant. I’m here to answer questions, provide guidance, and chat with you anytime. Ask me anything, and let’s explore and learn together!</span>
                         </div>
                     </div>
 

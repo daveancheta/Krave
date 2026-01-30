@@ -1,10 +1,19 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import { Inter } from 'next/font/google';
+import { Metadata } from 'next';
 
 const inter = Inter({
   subsets: ['latin'],
 });
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Krave",
+    default: "Krave",
+  },
+  description: "Full-Stack Developer",
+};
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
