@@ -1,7 +1,8 @@
 {
-  "title": "Installation",
+  "title": "How to Set Up Your AI API",
   "pages": [
-    "nextjs",
-    "gemini"
+    "gemini",
+    "openai",
+    "claude"
   ]
 }
