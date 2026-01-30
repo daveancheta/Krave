@@ -1,17 +1,72 @@
 ---
-title: Components
+title: Gemini API
 description: Components
 ---
 
-## Code Block
+## Installation
 
-```js
-console.log('Hello World');
+```npm
+npm install @google/genai
 ```
 
-## Cards
+## Usage
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards>
+```text title=".env"
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+```
+
+```ts title="app/api/gemini/route.ts"
+import { GoogleGenAI } from "@google/genai";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function POST(req: NextRequest) {
+    const apiKey = process.env.GEMINI_API_KEY;
+    const { prompt } = await req.json();
+
+    if (!apiKey) {
+        return NextResponse.json({ error: "API Key is missing." }, { status: 400 });
+    }
+
+    if (!prompt) {
+        return NextResponse.json({ error: "Prompt is required." }, { status: 400 });
+    }
+
+    try {
+        const ai = new GoogleGenAI({ apiKey });
+        const response = await ai.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: { text: prompt },
+        });
+
+        return NextResponse.json(response.text)
+    } catch (error) {
+        console.error("Error generating content:", error);
+    }
+}
+```
+
+## Testing
+
+Start the development server:
+```bash title="Terminal"
+npm run dev
+```
+
+### Using Postman
+
+1. Create a new POST request to `http://localhost:3000/api/gemini`
+2. In the **Body** tab, select **raw** and add:
+```json
+{
+    "prompt": "What is API?"
+}
+```
+
+3. Click **Send**
+
+### Expected Response
+```json
+{
+    "text": "Generated response from Gemini"
+}
+```
