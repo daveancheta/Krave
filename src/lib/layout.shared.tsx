@@ -12,7 +12,7 @@ export function baseOptions(): BaseLayoutProps {
         items: [
           {
             text: 'Getting Started',
-            description: 'Learn to use Fumadocs',
+            description: 'Learn how to set up your AI API and Frontend',
             url: '/docs',
           },
         ],
