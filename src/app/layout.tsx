@@ -48,7 +48,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/krave.png", type: "image/svg+xml" }],
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     type: "website",
