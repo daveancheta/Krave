@@ -1,8 +1,13 @@
 import ChatContainer from '@/components/ai/chat-container';
 import { Button } from '@/components/ui/button';
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog';
-import { AnimatedSpan, Terminal, TypingAnimation } from '@/components/ui/terminal';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "Krave",
+  description: " Learn how to connect Gemini, OpenAI, and other AI APIs in a Next.js app. Krave guides you through backend logic, frontend setup, and chatbot flows with a ready-made UI foundation.",
+};
 
 export default function HomePage() {
   return (
