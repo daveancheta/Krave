@@ -36,13 +36,13 @@ export default function HomePage() {
             Get Started
           </Link>
         </Button>
-
         <Button variant="outline" asChild>
           <Link href="/docs/frontend/ui">
-            View Components
+            UI Setup Guide
           </Link>
         </Button>
       </div>
+
       <div className='flex flex-row gap-2'>
         <div className="relative sm:w-200">
           <HeroVideoDialog
