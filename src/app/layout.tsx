@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Krave",
     default: "Krave",
   },
-  description: "Learn how to connect Gemini, OpenAI, and other AI APIs in a Next.js app. Krave guides you through backend logic, frontend setup, and chatbot flows with a ready-made UI foundation.",
+  description: "Your Ready-Made AI Chatbot Assistant Built with Next.js",
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {
