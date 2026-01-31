@@ -48,14 +48,14 @@ export default function HomePage() {
           <HeroVideoDialog
             className="block dark:hidden"
             animationStyle="top-in-bottom-out"
-            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+            videoSrc="https://www.youtube.com/embed/VQawbeiYDqY?si=pPA6d-slbrLzwt1ub"
             thumbnailSrc={thumbnailSrc}
             thumbnailAlt="Hero Video"
           />
           <HeroVideoDialog
             className="hidden dark:block"
             animationStyle="top-in-bottom-out"
-            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+            videoSrc="https://www.youtube.com/embed/VQawbeiYDqY?si=pPA6d-slbrLzwt1ub"
             thumbnailSrc={thumbnailSrc}
             thumbnailAlt="Hero Video"
           />
