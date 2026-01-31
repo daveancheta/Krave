@@ -1,8 +1,7 @@
 "use client"
 import { Send, X } from 'lucide-react'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupTextarea } from '../ui/input-group'
-import React, { useEffect, useRef, useState } from 'react'
-import { cn } from '@/lib/utils';
+import { useState } from 'react'
 import { Avatar, AvatarImage } from '../ui/avatar';
 
 function ChatContainer() {
@@ -10,7 +9,7 @@ function ChatContainer() {
 
     return (
         <div className='sm:relative bg-background border
-        rounded-md sm:min-w-100 max-w-100 flex flex-col w-screen text-start sm:block hidden'>
+        rounded-md sm:min-w-100 max-w-100 flex-col w-screen text-start sm:block hidden'>
             <div className='flex flex-col h-full'>
                 <div className='flex items-center justify-between px-4 py-2 border-b-2'>
                     <div className='flex flex-row items-center gap-2'>
