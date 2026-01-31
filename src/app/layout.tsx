@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Krave Docs - Beautiful documentation made simple",
     description: siteDescription,
     creator: creator,
-    images: ["/home.png"],
+    images: ["/homePage.png"],
   },
   alternates: {
     canonical: siteUrl,
