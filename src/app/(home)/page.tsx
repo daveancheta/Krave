@@ -26,7 +26,7 @@ export default function HomePage() {
         </Button>
 
         <Button variant="outline" asChild>
-          <Link href="/components">
+          <Link href="/docs/frontend/ui">
             View Components
           </Link>
         </Button>
