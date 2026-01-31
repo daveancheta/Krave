@@ -114,8 +114,8 @@ function ChatContainer({ isOpen, setIsOpen, avatar, name }:
             <div className='flex flex-col h-full'>
                 <div className='flex items-center justify-between px-4 py-2 border-b-2'>
                     <div className='flex flex-row items-center gap-2'>
-                        <Avatar>
-                            <AvatarImage src={avatar} />
+                        <Avatar className='w-12 h-12'>
+                            <AvatarImage className='object-cover w-full h-full' src={avatar} />
                         </Avatar>
                         <div className='flex flex-col gap-1'>
                             <span className='font-bold'>{name}</span>
