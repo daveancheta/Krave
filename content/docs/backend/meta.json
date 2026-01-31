@@ -3,6 +3,6 @@
   "pages": [
     "gemini",
     "openai",
-    "claude"
+    "anthropic"
   ]
 }

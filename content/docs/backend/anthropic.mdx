@@ -1,12 +1,12 @@
 ---
-title: OpenAI API
+title: Anthropic API
 description: Before getting started, make sure you have completed the Next.js installation.
 ---
 
 ### Installation
 
 ```npm
-npm install openai
+npm install @anthropic-ai/sdk
 ```
 
 ### Project Structure
@@ -14,7 +14,7 @@ npm install openai
 src/
 ├── app/
 │   ├── api/
-│   │   └── openai/
+│   │   └── anthropic/
 │   │       └── route.ts
 │   ├── favicon.ico
 │   ├── globals.css
@@ -23,20 +23,20 @@ src/
 ```
 
 ### Get your API key here:
-<a href="https://platform.openai.com/api-keys" className="no-underline">aistudio.google.com</a>
+<a href="https://platform.claude.com/settings/keys" className="no-underline">aistudio.google.com</a>
 
 ### Usage
 
 ```text title=".env"
-OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+ANTHROPIC_API_KEY=YOUR_ANTHROPIC_API_KEY
 ```
 
 ```ts title="src/app/api/gemini/route.ts"
-import OpenAI from "openai";
+import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-    const apiKey = process.env.OPENAI_API_KEY;
+    const apiKey = process.env.ANTHROPIC_API_KEY;
     const { prompt } = await req.json();
 
     if (!apiKey) {
@@ -48,13 +48,19 @@ export async function POST(req: NextRequest) {
     }
 
     try {
-        const ai = new OpenAI({ apiKey });
-        const response = await ai.responses.create({
-            model: "gpt-5-nano",
-            input: prompt
+        const ai = new Anthropic({ apiKey });
+        const response = await ai.messages.create({
+            model: "claude-sonnet-4-5",
+            max_tokens: 1000,
+            messages: [
+                {
+                    role: "user",
+                    content: prompt
+                }
+            ]
         });
-
-        return NextResponse.json({ text: response.output_text });
+            
+        return NextResponse.json({ text: response })
     } catch (error: any) {
         console.error("Error generating content:", error);
         return NextResponse.json(
@@ -74,7 +80,7 @@ npm run dev
 
 ### Using Postman
 
-1. Create a new POST request to `http://localhost:3000/api/openai`
+1. Create a new POST request to `http://localhost:3000/api/gemini`
 2. In the **Body** tab, select **raw** and add:
 ```json
 {
