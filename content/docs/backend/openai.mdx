@@ -3,4 +3,87 @@ title: OpenAI API
 description: Before getting started, make sure you have completed the Next.js installation.
 ---
 
-## Coming Soon
+### Installation
+
+```npm
+npm install openai
+```
+
+### Project Structure
+```
+src/
+├── app/
+│   ├── api/
+│   │   └── openai/
+│   │       └── route.ts
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+```
+
+### Get your API key here:
+<a href="https://platform.openai.com/api-keys" className="no-underline">aistudio.google.com</a>
+
+### Usage
+
+```text title=".env"
+OPENAI_API_KEY=OPENAI_API_KEY
+```
+
+```ts title="src/app/api/gemini/route.ts"
+import OpenAI from "openai";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function POST(req: NextRequest) {
+    const apiKey = process.env.OPENAI_API_KEY;
+    const { prompt } = await req.json();
+
+    if (!apiKey) {
+        return NextResponse.json({ error: "API Key is missing." }, { status: 400 });
+    }
+
+    if (!prompt) {
+        return NextResponse.json({ error: "Prompt is required." }, { status: 400 });
+    }
+
+    try {
+        const ai = new OpenAI({ apiKey });
+        const response = await ai.responses.create({
+            model: "gpt-5-nano",
+            input: prompt
+        });
+
+        return NextResponse.json({ text: response.output_text });
+    } catch (error) {
+        console.error("Error generating content:", error);
+        return NextResponse.json({error: error}, { status: 400 });
+    }
+}
+```
+
+## Testing
+
+Start the development server:
+```bash title="Terminal"
+npm run dev
+```
+
+### Using Postman
+
+1. Create a new POST request to `http://localhost:3000/api/openai`
+2. In the **Body** tab, select **raw** and add:
+```json
+{
+    "prompt": "What is API?"
+}
+```
+
+3. Click **Send**
+
+### Expected Response
+```json
+{
+    "text": "Generated response from Gemini"
+}
+```
