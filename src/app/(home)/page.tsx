@@ -1,38 +1,15 @@
 import ChatContainer from '@/components/ai/chat-container';
 import { Button } from '@/components/ui/button';
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog';
+import { getPageImage } from '@/lib/source';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Krave",
-    default: "Krave",
-  },
-  description:
-    "Krave is a ready-made AI chatbot assistant built with Next.js, featuring Gemini, OpenAI, and Claude API integration with a UI starter kit.",
-  
-  keywords: [
-    "Krave", "AI Chatbot", "Next.js", "Gemini API", "OpenAI API", "Claude API", "UI Starter", "Chatbot Guide"
-  ],
-
-  authors: [{ name: "Dave Ancheta" }],
-
+  title: "Krave",
+  description: "Learn how to connect Gemini, OpenAI, and other AI APIs in a Next.js app. Krave guides you through backend logic, frontend setup, and chatbot flows with a ready-made UI foundation.",
   openGraph: {
-    title: "Krave – AI Chatbot Assistant with Next.js",
-    description:
-      "Step-by-step guide to build AI chatbots using Gemini, OpenAI, and Claude APIs with a Next.js UI starter kit.",
-    url: "https://krave-docs.vercel.app",
-    siteName: "Krave Docs",
-    images: [
-      {
-        url: "/home.png",
-        width: 1200,
-        height: 630,
-        alt: "Krave Docs – AI Chatbot",
-      },
-    ],
-    type: "website",
+    images: "https://res.cloudinary.com/dc87gpj5o/image/upload/v1769834961/home_jabwfj.png",
   },
 };
 
