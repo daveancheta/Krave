@@ -1,10 +1,22 @@
+"use client";
 import ChatContainer from '@/components/ai/chat-container';
 import { Button } from '@/components/ui/button';
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog';
-import { Metadata } from 'next';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
+import { use, useEffect, useState } from 'react';
 
 export default function HomePage() {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const thumbnailSrc = isMounted && isDark ? "/dark-portfolio.png" : "/portfolio.png";
+
   return (
     <div className="wrapper flex flex-col flex-1 items-center justify-center text-center gap-6 px-4">
       <h1 className="text-3xl md:text-5xl font-black tracking-tight text-transparent 
@@ -37,14 +49,14 @@ export default function HomePage() {
             className="block dark:hidden"
             animationStyle="top-in-bottom-out"
             videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-            thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+            thumbnailSrc={thumbnailSrc}
             thumbnailAlt="Hero Video"
           />
           <HeroVideoDialog
             className="hidden dark:block"
             animationStyle="top-in-bottom-out"
             videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-            thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+            thumbnailSrc={thumbnailSrc}
             thumbnailAlt="Hero Video"
           />
         </div>
