@@ -7,35 +7,39 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
-const siteName = "Krave Docs"
-const creator = "HHeaven Dave Ancheta"
+const siteName = "Krave Docs";
+const creator = "Heaven Dave Ancheta";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const siteDescription = 
-"Learn how to connect Gemini, OpenAI, and other AI APIs in a Next.js app. Krave guides you through backend logic, frontend setup, and chatbot flows with a ready-made UI foundation."
+
+// Shortened, more focused description (120-155 chars is optimal)
+const siteDescription =
+  "Connect AI APIs like Gemini and OpenAI to Next.js. Step-by-step guides for chatbots, backend logic, and ready-made UI components.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Krave Docs",
-    template: "%s - Krave Docs",
+    default: "Krave Docs - AI Chatbot Integration for Next.js",
+    template: "%s | Krave Docs",
   },
   description: siteDescription,
   keywords: [
-    "Krave Docs",
-    "AI Chatbot",
-    "Next.js",
-    "OpenAI",
-    "Gemini",
-    "Documentation",
-    "Tutorial",
-    "Chatbot UI",
-    "AI Integration",
+    "AI chatbot Next.js",
+    "OpenAI integration",
+    "Gemini API tutorial",
+    "Next.js AI documentation",
+    "chatbot UI components",
+    "AI API integration guide",
   ],
   authors: [
     { name: "Heaven Dave Ancheta", url: "https://github.com/daveancheta" },
   ],
   creator: creator,
-  publisher: "krave-docs",
+  publisher: "Krave Docs",
+  
+  verification: {
+    google: "google89c9ecfc790b5ed5.html", 
+  },
+  
   robots: {
     index: true,
     follow: true,
@@ -47,36 +51,42 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png", 
   },
+  
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName: siteName,
-    title: "Krave Docs",
+    title: "Krave Docs - AI Chatbot Integration for Next.js",
     description: siteDescription,
     images: [
       {
-        url: "/home.png",
+        url: `/home.png`, 
         width: 1200,
         height: 630,
-        alt: "Krave Docs - Beautiful documentation made simple",
+        alt: "Krave Docs - AI API Integration Documentation",
       },
     ],
   },
+  
   twitter: {
     card: "summary_large_image",
-    title: "Krave Docs - Beautiful documentation made simple",
+    title: "Krave Docs - AI Chatbot Integration for Next.js",
     description: siteDescription,
-    creator: creator,
-    images: ["/homePage.png"],
+    creator: "@yourhandle", 
+    images: [`/homePage.png`], 
   },
+  
   alternates: {
     canonical: siteUrl,
   },
+  
   category: "technology",
 };
 
