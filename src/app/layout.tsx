@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   keywords: [
-    "Krave",
+    "Krave Docs",
     "AI Chatbot",
     "Next.js",
     "OpenAI",
