@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: "Krave Docs",
   description: "Learn how to connect Gemini, OpenAI, and other AI APIs in a Next.js app. Krave guides you through backend logic, frontend setup, and chatbot flows with a ready-made UI foundation.",
   openGraph: {
+    title: "Krave Docs",
+    description: "Learn how to connect Gemini, OpenAI, and other AI APIs in a Next.js app. Krave guides you through backend logic, frontend setup, and chatbot flows with a ready-made UI foundation.",
+    url: "https://krave-docs.vercel.app",
+    siteName: "Krave Docs",
     images: [
       {
         url: "https://res.cloudinary.com/dc87gpj5o/image/upload/v1769834961/home_jabwfj.png",
@@ -15,7 +19,9 @@ export const metadata: Metadata = {
         height: 630,
         alt: "Krave - AI Chatbot Framework"
       }
-    ]
+    ],
+    locale: "en_US",
+    type: "website",
   },
 };
 
