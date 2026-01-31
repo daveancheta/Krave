@@ -1,15 +1,21 @@
 import ChatContainer from '@/components/ai/chat-container';
 import { Button } from '@/components/ui/button';
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog';
-import { getPageImage } from '@/lib/source';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "Krave",
+  title: "Krave Docs",
   description: "Learn how to connect Gemini, OpenAI, and other AI APIs in a Next.js app. Krave guides you through backend logic, frontend setup, and chatbot flows with a ready-made UI foundation.",
   openGraph: {
-    images: "https://res.cloudinary.com/dc87gpj5o/image/upload/v1769834961/home_jabwfj.png",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dc87gpj5o/image/upload/v1769834961/home_jabwfj.png",
+        width: 1200,
+        height: 630,
+        alt: "Krave - AI Chatbot Framework"
+      }
+    ]
   },
 };
 
