@@ -33,6 +33,8 @@ export const UseGeminiStore = create<GeminiState>((set) => ({
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt }),
             })
+            // for OpenAI "/api/openai"
+            // for Claude "/api/claude"
 
             const generatedResponse = await res.json();
 
