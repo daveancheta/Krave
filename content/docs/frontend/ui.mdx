@@ -67,7 +67,7 @@ import { Send, X } from 'lucide-react'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupTextarea } from '../ui/input-group'
 import React, { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Avatar, AvatarImage } from '../ui/avatar';
 import { UseAiStore } from '@/app/state/use-store-ai';
 
 interface AiState {
@@ -113,8 +113,8 @@ function ChatContainer({ isOpen, setIsOpen, avatar, name }: AiState) {
             <div className='flex flex-col h-full'>
                 <div className='flex items-center justify-between px-4 py-2 border-b-2'>
                     <div className='flex flex-row items-center gap-2'>
-                        <Avatar>
-                            <AvatarImage src={avatar} />
+                        <Avatar className='h-12 w-12'>
+                            <AvatarImage className='object-cover' src={avatar} />
                         </Avatar>
                         <div className='flex flex-col gap-1'>
                             <span className='font-bold'>{name}</span>

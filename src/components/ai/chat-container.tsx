@@ -13,7 +13,7 @@ function ChatContainer() {
             <div className='flex flex-col h-full'>
                 <div className='flex items-center justify-between px-4 py-2 border-b-2'>
                     <div className='flex flex-row items-center gap-2'>
-                        <Avatar className='w-10 h-10'>
+                        <Avatar className='w-12 h-12'>
                             <AvatarImage className='object-cover w-full h-full' src="https://github.com/shadcn.png" />
                         </Avatar>
                         <div className='flex flex-col gap-1'>
