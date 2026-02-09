@@ -11,7 +11,7 @@ npm install zustand
 
 ### State Management
 
-```ts title="src/app/state/use-store-gemini.ts"
+```ts title="src/app/state/use-store-ai.ts"
 import { create } from "zustand";
 
 interface GeminiState {
@@ -20,7 +20,7 @@ interface GeminiState {
     generateResponse: (prompt: string) => Promise<void>
 }
 
-export const UseGeminiStore = create<GeminiState>((set) => ({
+export const UseAiStore = create<GeminiState>((set) => ({
     isGenerating: false,
     response: "",
 

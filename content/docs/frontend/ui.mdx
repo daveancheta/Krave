@@ -68,7 +68,7 @@ import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGro
 import React, { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { UseGeminiStore } from '@/app/state/use-store-gemini';
+import { UseAiStore } from '@/app/state/use-store-ai';
 
 function ChatContainer({ isOpen, setIsOpen, avatar, name }:
     {
@@ -77,7 +77,7 @@ function ChatContainer({ isOpen, setIsOpen, avatar, name }:
         name?: string,
         avatar?: string
     }) {
-    const { generateResponse, isGenerating, response } = UseGeminiStore();
+    const { generateResponse, isGenerating, response } = UseAiStore();
     const messageRef = useRef<HTMLDivElement>(null);
     const [prompt, setPrompt] = useState<string>("");
     const [message, setMessage] = useState<string>("");
