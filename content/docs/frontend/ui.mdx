@@ -68,7 +68,7 @@ import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGro
 import React, { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { UseGeminiStore } from '@/app/state/use-store-gemini';
+import { UseAiStore } from '@/app/state/use-store-ai';
 
 interface AiState {
     isOpen?: boolean,
@@ -78,13 +78,13 @@ interface AiState {
 }
 
 function ChatContainer({ isOpen, setIsOpen, avatar, name }: AiState) {
-    const { generateResponse, isGenerating, response } = UseGeminiStore();
+    const { generateResponse, isGenerating, messages } = UseAiStore();
     const messageRef = useRef<HTMLDivElement>(null);
     const [prompt, setPrompt] = useState<string>("");
-    const [message, setMessage] = useState<string>("");
 
     const handleSend = () => {
-        setMessage(prompt)
+        if (!prompt.trim()) return;
+
         setPrompt("")
         generateResponse(prompt)
     }
@@ -94,13 +94,10 @@ function ChatContainer({ isOpen, setIsOpen, avatar, name }: AiState) {
             e.preventDefault()
         }
 
-        if (prompt.trim()) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                setMessage(prompt)
-                setPrompt("")
-                e.preventDefault()
-                generateResponse(prompt)
-            }
+        if (prompt.trim() && e.key === 'Enter' && !e.shiftKey) {
+            setPrompt("")
+            e.preventDefault()
+            generateResponse(prompt)
         }
     };
 
@@ -138,25 +135,34 @@ function ChatContainer({ isOpen, setIsOpen, avatar, name }: AiState) {
                         </div>
                     </div>
 
-                    <div className='flex flex-col items-end'>
-                        <div className={cn('bg-blue-500 rounded-lg p-4 w-fit max-w-60', !message.trim() && 'hidden')}>
-                            <span className='text-white'>{message}</span>
+                    {messages.map((msg, index) => (
+                        <div key={index}
+                            className={cn('flex flex-col gap-2', msg.role === "user"
+                                ? "items-end"
+                                : "items-start")}>
+                            <div className={cn("p-4 rounded-md max-w-60",
+                                msg.role === "user"
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-black text-white dark:text-black")}>
+                                <span>
+                                    {msg.content}
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    ))}
+
                     <div className='flex flex-col items-start'>
-                        <div className={cn(!response && !isGenerating && 'hidden')}>
+                        <div className={cn(!isGenerating && 'hidden')}>
                             <div className='bg-black dark:bg-white rounded-lg p-4 w-fit max-w-60'>
-                                {isGenerating ?
-                                    <div className='bg-black dark:bg-white flex flex-row gap-1'>
-                                        <div className='w-1 h-1 bg-white dark:bg-black animate-bounce rounded-full'></div>
-                                        <div className='w-1 h-1 bg-white dark:bg-black animate-bounce delay-150 rounded-full'></div>
-                                        <div className='w-1 h-1 bg-white dark:bg-black animate-bounce delay-300 rounded-full'></div>
-                                    </div> :
-                                    <span className='text-white dark:text-black text-sm'>{response}</span>
-                                }
+                                <div className='bg-black dark:bg-white flex flex-row gap-1'>
+                                    <div className='w-1 h-1 bg-white dark:bg-black animate-bounce rounded-full'></div>
+                                    <div className='w-1 h-1 bg-white dark:bg-black animate-bounce delay-150 rounded-full'></div>
+                                    <div className='w-1 h-1 bg-white dark:bg-black animate-bounce delay-300 rounded-full'></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div className={cn(isOpen && "hidden")} ref={messageRef}></div>
                 </div>
 

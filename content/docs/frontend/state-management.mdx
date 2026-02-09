@@ -1,31 +1,28 @@
----
-title: State Management
-description: Using Zustand to manage application state and connect it seamlessly to the frontend UI.
----
-
-### Installation
-
-```npm
-npm install zustand
-```
-
-### State Management
-
-```ts title="src/app/state/use-store-ai.ts"
 import { create } from "zustand";
+
+interface Assistant {
+    role: 'user' | 'assistant';
+    content: string;
+}
 
 interface GeminiState {
     isGenerating: boolean
-    response: string
+    messages: Assistant[],
     generateResponse: (prompt: string) => Promise<void>
 }
 
-export const UseAiStore = create<GeminiState>((set) => ({
+export const UseAiStore = create<GeminiState>((set, get) => ({
     isGenerating: false,
-    response: "",
+    messages: [],
 
     generateResponse: async (prompt: string) => {
-        set({ isGenerating: true });
+        const trimmedPrompt = prompt.trim();
+        if (!trimmedPrompt) return;
+
+        set((state) => ({
+            isGenerating: true,
+            messages: [...state.messages, { role: 'user', content: trimmedPrompt }]
+        }))
 
         try {
             const res = await fetch("/api/gemini", {
@@ -33,18 +30,22 @@ export const UseAiStore = create<GeminiState>((set) => ({
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt }),
             })
-            // for OpenAI "/api/openai"
-            // for Claude "/api/anthropic"
 
             const generatedResponse = await res.json();
+            const text = generatedResponse.text.replace(/\*/g, '') || '';
 
-            set({ response: generatedResponse.text.replace(/\*/g, '') || '' });
+            set((state) => ({
+                isGenerating: false,
+                messages: [...state.messages, { role: 'assistant', content: text }]
+            }));
         } catch (error) {
             console.log(error)
-            set({ response: "Something went wrong. Please check your API key and try again." });
+            set((state) => ({
+                isGenerating: false,
+                messages: [...state.messages, { role: 'assistant', content: "Something went wrong. Please try again later." }]
+            }));
         } finally {
             set({ isGenerating: false });
         }
     }
 }));
-```
