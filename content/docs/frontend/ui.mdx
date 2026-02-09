@@ -143,7 +143,7 @@ function ChatContainer({ isOpen, setIsOpen, avatar, name }: AiState) {
                             <div className={cn("p-4 rounded-md max-w-60",
                                 msg.role === "user"
                                     ? "bg-blue-500 text-white"
-                                    : "bg-black text-white dark:text-black")}>
+                                    : "bg-black dark:bg-white text-white dark:text-black")}>
                                 <span>
                                     {msg.content}
                                 </span>
