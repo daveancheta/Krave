@@ -1,3 +1,17 @@
+---
+title: State Management
+description: Using Zustand to manage application state and connect it seamlessly to the frontend UI.
+---
+
+### Installation
+
+```npm
+npm install zustand
+```
+
+### State Management
+
+```ts title="src/app/state/use-store-ai.ts"
 import { create } from "zustand";
 
 interface Assistant {
@@ -49,3 +63,4 @@ export const UseAiStore = create<GeminiState>((set, get) => ({
         }
     }
 }));
+```
