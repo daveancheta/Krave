@@ -1,0 +1,138 @@
+---
+title: Setup
+description: Configure MediaPipe hand landmark detection in a Next.js application.
+---
+
+### Installation
+
+```npm
+npm install @mediapipe/tasks-vision
+```
+
+### Source Code
+```tsx title="src/components/HandLandmark.tsx"
+import { useEffect, useRef } from 'react'
+import {
+  HandLandmarker,
+  FilesetResolver,
+  DrawingUtils
+} from "@mediapipe/tasks-vision";
+
+function App() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const handLandmarkerRef = useRef<HandLandmarker | undefined>(undefined);
+  const runningModeRef = useRef<"IMAGE" | "VIDEO">("IMAGE");
+  const webcamRunningRef = useRef(false);
+  const lastVideoTimeRef = useRef(-1);
+  const resultsRef = useRef<any>(undefined);
+  const webcamButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const createHandLandmarker = async () => {
+      const vision = await FilesetResolver.forVisionTasks(
+        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+      );
+      handLandmarkerRef.current = await HandLandmarker.createFromOptions(vision, {
+        baseOptions: {
+          modelAssetPath: `https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task`,
+          delegate: "GPU"
+        },
+        runningMode: runningModeRef.current,
+        numHands: 2
+      });
+    };
+
+    createHandLandmarker();
+  }, []);
+
+  function enableCam() {
+    if (!handLandmarkerRef.current) {
+      console.log("Wait! handLandmarker not loaded yet.");
+      return;
+    }
+
+    webcamRunningRef.current = !webcamRunningRef.current;
+    if (webcamButtonRef.current) {
+      webcamButtonRef.current.innerText = webcamRunningRef.current
+        ? "DISABLE PREDICTIONS"
+        : "ENABLE WEBCAM";
+    }
+
+    const constraints = { video: true };
+    navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        videoRef.current.addEventListener("loadeddata", predictWebcam);
+      }
+    });
+  }
+
+  async function predictWebcam() {
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    if (!video || !canvas || !handLandmarkerRef.current) return;
+
+    const canvasCtx = canvas.getContext("2d");
+    if (!canvasCtx) return;
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    if (runningModeRef.current === "IMAGE") {
+      runningModeRef.current = "VIDEO";
+      await handLandmarkerRef.current.setOptions({ runningMode: "VIDEO" });
+    }
+
+    const startTimeMs = performance.now();
+    if (lastVideoTimeRef.current !== video.currentTime) {
+      lastVideoTimeRef.current = video.currentTime;
+      resultsRef.current = handLandmarkerRef.current.detectForVideo(video, startTimeMs);
+    }
+
+    canvasCtx.save();
+    canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (resultsRef.current?.landmarks) {
+      const drawingUtils = new DrawingUtils(canvasCtx);
+      for (const landmarks of resultsRef.current.landmarks) {
+        drawingUtils.drawConnectors(landmarks, HandLandmarker.HAND_CONNECTIONS, {
+          color: "#00FF00",
+          lineWidth: 5
+        });
+        drawingUtils.drawLandmarks(landmarks, {
+          color: "#FF0000",
+          lineWidth: 2
+        });
+      }
+    }
+
+    canvasCtx.restore();
+
+    if (webcamRunningRef.current) {
+      window.requestAnimationFrame(predictWebcam);
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 overflow-hidden bg-black">
+      <button className="absolute top-4 left-4 z-50 text-white" ref={webcamButtonRef} onClick={enableCam}>
+        ENABLE WEBCAM
+      </button>
+
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full"
+      />
+    </div>
+  );
+}
+
+export default App;
+```
