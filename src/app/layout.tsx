@@ -13,7 +13,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 // Shortened, more focused description (120-155 chars is optimal)
 const siteDescription =
-  "Connect AI APIs like Gemini and OpenAI to Next.js. Step-by-step guides for chatbots, backend logic, and ready-made UI components.";
+  "Krave-Docs provides comprehensive guides for integrating AI, MediaPipe, and other tools into Next.js applications.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
