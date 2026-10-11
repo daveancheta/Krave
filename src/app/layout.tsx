@@ -1,15 +1,16 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
-import { Bricolage_Grotesque, Geist } from 'next/font/google';
+import { Geist } from 'next/font/google';
+import localFont from 'next/font/local';
 import { Metadata } from 'next';
 
 const geist = Geist({
   subsets: ['latin'],
 });
-const brandFont = Bricolage_Grotesque({
-  subsets: ['latin'],
+const brandFont = localFont({
+  src: '../../public/fonts/bricolage-grotesque-semibold.woff2',
   variable: '--font-brand',
-  weight: ['600', '700'],
+  weight: '600',
 });
 
 const siteName = "Krave Docs";
