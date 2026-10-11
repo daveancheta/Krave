@@ -8,29 +8,28 @@ function ChatContainer() {
     const [prompt, setPrompt] = useState<string>("")
 
     return (
-        <div className='sm:relative bg-background border
-        rounded-md sm:min-w-100 max-w-100 flex-col w-screen text-start sm:block hidden'>
+        <div className='relative hidden h-full min-h-[420px] w-full flex-col rounded-xl border border-border/70 bg-background shadow-sm sm:min-w-0 sm:max-w-none sm:flex'>
             <div className='flex flex-col h-full'>
-                <div className='flex items-center justify-between px-4 py-2 border-b-2'>
+                <div className='flex items-center justify-between border-b px-4 py-3'>
                     <div className='flex flex-row items-center gap-2'>
                         <Avatar className='w-12 h-12'>
                             <AvatarImage className='object-cover w-full h-full' src="https://github.com/shadcn.png" />
                         </Avatar>
                         <div className='flex flex-col gap-1'>
                             <span className='font-bold'>Krave</span>
-                            <div className='flex flex-row items-center gap-1'>
-                                <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                <span className='text-xs'>Active Now</span>
+                            <div className='flex flex-row items-center gap-1.5'>
+                                <div className='size-1.5 rounded-full bg-emerald-500'></div>
+                                <span className='text-xs text-muted-foreground'>Active Now</span>
                             </div>
                         </div>
                     </div>
                     <button><X /></button>
                 </div>
 
-                <div className='flex-1 overflow-y-auto space-y-4 p-2 scrollable-div'>
+                <div className='flex-1 overflow-y-auto space-y-4 p-4 scrollable-div'>
                     <div className='flex flex-col items-start gap-2'>
-                        <div className='bg-black dark:bg-white rounded-lg p-4 w-fit max-w-60'>
-                            <span className='text-white dark:text-black text-sm'>Hello! I’m Krave, your friendly AI chatbot assistant. I’m here to answer questions, provide guidance, and chat with you anytime. Ask me anything, and let’s explore and learn together!</span>
+                        <div className='w-fit max-w-60 rounded-2xl rounded-tl-sm bg-secondary p-4'>
+                            <span className='text-sm text-secondary-foreground'>Hello! I’m Krave, your friendly AI chatbot assistant. I’m here to answer questions, provide guidance, and chat with you anytime. Ask me anything, and let’s explore and learn together!</span>
                         </div>
                     </div>
 
