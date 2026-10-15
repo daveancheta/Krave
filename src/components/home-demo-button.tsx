@@ -9,7 +9,7 @@ export default function HomeDemoButton() {
   }
 
   return (
-    <Button type="button" size="lg" className="home-hero-button" onClick={scrollToDemo}>
+    <Button type="button" size="lg" className="home-demo-button" onClick={scrollToDemo}>
       Explore the demo
       <ArrowDownRight className="size-4" />
     </Button>

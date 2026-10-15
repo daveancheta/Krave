@@ -1,5 +1,8 @@
 import HomeDemoButton from '@/components/home-demo-button';
 import VisionPlayground from '@/components/vision-playground';
+import Link from 'next/link';
+import { BookOpen } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function HomePage() {
   return (
@@ -16,7 +19,15 @@ export default function HomePage() {
             Examples for Next.js, with live demos and implementation guides you
             can adapt to your own project.
           </p>
-          <HomeDemoButton />
+          <div className="home-hero-actions">
+            <HomeDemoButton />
+            <Button asChild variant="outline" size="lg" className="home-docs-button">
+              <Link href="/docs">
+                <BookOpen className="size-4" />
+                Read the docs
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
       <VisionPlayground />

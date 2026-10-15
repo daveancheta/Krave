@@ -185,8 +185,12 @@
 .home-hero-copy { max-width: 24rem; }
 .home-hero-note { margin-bottom: .8rem; color: var(--primary); font-size: .72rem; font-weight: 650; letter-spacing: .04em; }
 .home-intro { max-width: 24rem; color: var(--muted-foreground); font-size: clamp(1rem, 1.6vw, 1.12rem); line-height: 1.75; }
-.home-hero-button { height: auto; margin-top: 1.5rem; gap: .5rem; padding: .55rem 0; border: 0; background: transparent; color: var(--foreground); box-shadow: none; }
-.home-hero-button:hover { background: transparent; color: var(--primary); }
+.home-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; margin-top: 1.5rem; }
+.home-demo-button { height: 2.8rem; gap: .6rem; border-radius: .65rem; padding-inline: 1.1rem; box-shadow: 0 6px 18px -10px color-mix(in oklab, var(--primary) 65%, transparent); }
+.home-demo-button svg { transition: transform 160ms ease; }
+.home-demo-button:hover svg { transform: translate(2px, 2px); }
+.home-docs-button { height: 2.8rem; gap: .55rem; border-color: var(--border); border-radius: .65rem; background: var(--card); padding-inline: 1rem; color: var(--foreground); }
+.home-docs-button:hover { border-color: color-mix(in oklab, var(--primary) 45%, var(--border)); background: var(--accent); color: var(--accent-foreground); }
 .vision-playground { width: 100%; max-width: 72rem; scroll-margin-top: 2rem; }
 .vision-playground-heading { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin: 1.5rem 0 .75rem; text-align: left; }
 .vision-playground-label { display: flex; align-items: baseline; gap: .8rem; color: var(--foreground); font-size: .8rem; font-weight: 650; }
@@ -221,4 +225,4 @@
 .face-demo { margin-top: 1.5rem; }
 .face-camera-view video { transform: scaleX(-1); }
 .face-camera-view canvas { transform: none; }
-@media (max-width: 640px) { .home-hero { grid-template-columns: 1fr; align-items: start; gap: 1.25rem; padding-top: 2rem; } .home-hero h1 { font-size: clamp(2.75rem, 12vw, 4.5rem); } .home-intro { max-width: 32rem; } .home-hero-button { margin-top: .75rem; } .vision-playground-heading { align-items: flex-start; flex-direction: column; gap: .75rem; } .vision-playground-label { flex-direction: column; gap: .2rem; } .vision-demo-switch { width: 100%; } .vision-demo-switch button { flex: 1; } .hand-demo, .face-demo { grid-template-columns: 1fr; margin-top: 3rem; } .vision-playground-panel .hand-demo, .vision-playground-panel .face-demo { margin-top: 0; } .hand-demo-copy { padding-bottom: 1rem; } .hand-demo-copy h2 { margin-top: .8rem; } .hand-demo-copy p { margin-top: .5rem; } .hand-toggle { margin-top: 1rem; } .hand-stage { min-height: 320px; } }
+@media (max-width: 640px) { .home-hero { grid-template-columns: 1fr; align-items: start; gap: 1.25rem; padding-top: 2rem; } .home-hero h1 { font-size: clamp(2.75rem, 12vw, 4.5rem); } .home-intro { max-width: 32rem; } .home-hero-actions { margin-top: 1rem; } .home-demo-button, .home-docs-button { height: 2.65rem; padding-inline: .85rem; } .vision-playground-heading { align-items: flex-start; flex-direction: column; gap: .75rem; } .vision-playground-label { flex-direction: column; gap: .2rem; } .vision-demo-switch { width: 100%; } .vision-demo-switch button { flex: 1; } .hand-demo, .face-demo { grid-template-columns: 1fr; margin-top: 3rem; } .vision-playground-panel .hand-demo, .vision-playground-panel .face-demo { margin-top: 0; } .hand-demo-copy { padding-bottom: 1rem; } .hand-demo-copy h2 { margin-top: .8rem; } .hand-demo-copy p { margin-top: .5rem; } .hand-toggle { margin-top: 1rem; } .hand-stage { min-height: 320px; } }
