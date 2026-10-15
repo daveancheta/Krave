@@ -8,6 +8,7 @@ import { useTheme } from 'next-themes';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import HandLandmarkModel from '@/components/hand-landmark-model';
+import FaceDetectionModel from '@/components/face-detection-model';
 
 export default function HomePage() {
   const [isMounted, setIsMounted] = useState(false);
@@ -67,6 +68,7 @@ export default function HomePage() {
 
       <p className="mt-4 text-xs text-muted-foreground/80">A quick look at the interface you’ll build with Krave</p>
       <HandLandmarkModel />
+      <FaceDetectionModel />
     </main>
   );
 }

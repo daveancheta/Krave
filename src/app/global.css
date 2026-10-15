@@ -204,7 +204,10 @@
 .hand-live-dot.is-live { background: #35e6a0; box-shadow: 0 0 0 3px #35e6a044; }
 .hand-point-count { right: 1.7rem; color: white; font-size: .88rem; letter-spacing: 0; }
 .hand-point-count span { color: #e1e7e3; font-size: .58rem; letter-spacing: .1em; }
-@media (max-width: 640px) { .hand-demo { grid-template-columns: 1fr; margin-top: 3rem; } .hand-demo-copy { padding-bottom: 1rem; } .hand-demo-copy h2 { margin-top: .8rem; } .hand-demo-copy p { margin-top: .5rem; } .hand-toggle { margin-top: 1rem; } .hand-stage { min-height: 320px; } }
+.face-demo { margin-top: 1.5rem; }
+.face-camera-view video { transform: scaleX(-1); }
+.face-camera-view canvas { transform: none; }
+@media (max-width: 640px) { .hand-demo, .face-demo { grid-template-columns: 1fr; margin-top: 3rem; } .hand-demo-copy { padding-bottom: 1rem; } .hand-demo-copy h2 { margin-top: .8rem; } .hand-demo-copy p { margin-top: .5rem; } .hand-toggle { margin-top: 1rem; } .hand-stage { min-height: 320px; } }
 
 @media (prefers-reduced-motion: no-preference) {
   .home-preview {
