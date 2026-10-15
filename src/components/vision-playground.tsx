@@ -12,27 +12,23 @@ export default function VisionPlayground() {
   return (
     <section id="live-demos" aria-labelledby="demos-title" className="vision-playground">
       <div className="vision-playground-heading">
-        <div>
-          <p className="home-section-kicker">INTERACTIVE PLAYGROUND</p>
-          <h2 id="demos-title">Try computer vision live.</h2>
-          <p className="vision-playground-description">
-            Switch between demos. Camera access starts only when you enable it.
-          </p>
-        </div>
+        <p id="demos-title" className="vision-playground-label">
+          Live demo <span>Camera starts only when you enable it.</span>
+        </p>
         <div className="vision-demo-switch" role="group" aria-label="Choose a vision demo">
           <button
             type="button"
             aria-pressed={activeDemo === 'face'}
             onClick={() => setActiveDemo('face')}
           >
-            Face detection
+            Face
           </button>
           <button
             type="button"
             aria-pressed={activeDemo === 'hands'}
             onClick={() => setActiveDemo('hands')}
           >
-            Hand tracking
+            Hands
           </button>
         </div>
       </div>

@@ -1,36 +1,20 @@
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { ArrowDown, Camera, ShieldCheck } from 'lucide-react';
+import HomeDemoButton from '@/components/home-demo-button';
 import VisionPlayground from '@/components/vision-playground';
 
 export default function HomePage() {
   return (
     <main className="home-shell wrapper">
       <section aria-labelledby="home-title" className="home-hero">
-        <p className="home-kicker">
-          <span className="home-kicker-dot" />
-          COMPUTER VISION · MEDIAPIPE · NEXT.JS
-        </p>
         <h1 id="home-title">
-          Computer vision,
+          Face and hand tracking
           <br />
-          <span>made practical.</span>
+          <span>for the browser.</span>
         </h1>
         <p className="home-intro">
-          Learn browser-based face detection and hand tracking with practical
-          guides and live examples.
+          MediaPipe examples for Next.js, with live demos and implementation
+          guides you can adapt to your own project.
         </p>
-        <Button asChild size="lg" className="home-hero-button">
-          <Link href="#live-demos">
-            <Camera className="size-4" />
-            Try the live demos
-            <ArrowDown className="size-4" />
-          </Link>
-        </Button>
-        <p className="home-privacy">
-          <ShieldCheck className="size-4" />
-          Your camera stays off until you choose to start a demo.
-        </p>
+        <HomeDemoButton />
       </section>
       <VisionPlayground />
     </main>
