@@ -17,24 +17,22 @@ const siteName = "Krave Docs";
 const creator = "Heaven Dave Ancheta";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-// Shortened, more focused description (120-155 chars is optimal)
 const siteDescription =
-  "Krave-Docs provides comprehensive guides for integrating AI, MediaPipe, and other tools into Next.js applications.";
+  "Practical guides for building browser-based computer vision features with MediaPipe and Next.js, including face detection and hand tracking.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Krave Docs - AI Chatbot Integration for Next.js",
+    default: "Krave Docs - Computer Vision with MediaPipe and Next.js",
     template: "%s | Krave Docs",
   },
   description: siteDescription,
   keywords: [
-    "AI chatbot Next.js",
-    "OpenAI integration",
-    "Gemini API tutorial",
-    "Next.js AI documentation",
-    "chatbot UI components",
-    "AI API integration guide",
+    "computer vision Next.js",
+    "MediaPipe face detection",
+    "MediaPipe hand tracking",
+    "browser-based computer vision",
+    "Next.js vision guides",
   ],
   authors: [
     { name: "Heaven Dave Ancheta", url: "https://github.com/daveancheta" },
@@ -69,21 +67,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: siteName,
-    title: "Krave Docs - AI Chatbot Integration for Next.js",
+    title: "Krave Docs - Computer Vision with MediaPipe and Next.js",
     description: siteDescription,
     images: [
       {
         url: `/home.png`, 
         width: 1200,
         height: 630,
-        alt: "Krave Docs - AI API Integration Documentation",
+        alt: "Krave Docs - Computer Vision Guides for Next.js",
       },
     ],
   },
   
   twitter: {
     card: "summary_large_image",
-    title: "Krave Docs - AI Chatbot Integration for Next.js",
+    title: "Krave Docs - Computer Vision with MediaPipe and Next.js",
     description: siteDescription,
     creator: "@yourhandle", 
     images: [`/homePage.png`], 
