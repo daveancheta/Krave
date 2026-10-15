@@ -10,11 +10,14 @@ export default function HomePage() {
           <br />
           <span>for the browser.</span>
         </h1>
-        <p className="home-intro">
-          MediaPipe examples for Next.js, with live demos and implementation
-          guides you can adapt to your own project.
-        </p>
-        <HomeDemoButton />
+        <div className="home-hero-copy">
+          <p className="home-hero-note">Built with MediaPipe Tasks Vision</p>
+          <p className="home-intro">
+            Examples for Next.js, with live demos and implementation guides you
+            can adapt to your own project.
+          </p>
+          <HomeDemoButton />
+        </div>
       </section>
       <VisionPlayground />
     </main>
