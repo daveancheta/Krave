@@ -1,45 +1,69 @@
-# .
+# Krave Docs
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+Practical guides and live demos for browser-based computer vision with
+[MediaPipe Tasks Vision](https://ai.google.dev/edge/mediapipe/solutions/vision)
+and [Next.js](https://nextjs.org/). Explore face detection and hand landmark
+tracking, then adapt the examples for your own project.
 
-Run development server:
+## What’s inside
+
+- **Face detection** — detect faces in a live camera preview and draw
+  confidence-scored bounding boxes.
+- **Hand landmark tracking** — track up to two hands and render their
+  landmarks and connections.
+- **Documentation** — implementation guides with example code for both tasks.
+
+The live demos request camera access only after you choose to start them. Video
+is processed in your browser and is not uploaded by the demos.
+
+## Getting started
+
+### Requirements
+
+- Node.js (LTS recommended)
+- npm
+- A browser with webcam access for the live demos
+
+### Install and run
 
 ```bash
+git clone https://github.com/daveancheta/Krave.git
+cd Krave
+npm install
 npm run dev
-# or
-pnpm dev
-# or
-yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Select a vision demo on the
+landing page and allow camera access when prompted.
 
-## Explore
+To run a production build locally:
 
-In the project, you can see:
+```bash
+npm run build
+npm run start
+```
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+## Documentation
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+- [Face Detection](https://github.com/daveancheta/Krave/blob/main/content/docs/task-vision/face-detection.mdx)
+- [Hand Landmark Tracking](https://github.com/daveancheta/Krave/blob/main/content/docs/task-vision/hand-land-marker.mdx)
 
-### Fumadocs MDX
+When running the site locally, browse the guides at `/docs/task-vision/face-detection`
+and `/docs/task-vision/hand-land-marker`.
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+## Development commands
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server. |
+| `npm run build` | Build the production site. |
+| `npm run start` | Serve the production build. |
+| `npm run lint` | Run ESLint. |
+| `npm run types:check` | Generate Fumadocs MDX and Next.js types, then run TypeScript checks. |
 
-## Learn More
+## Built with
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+- Next.js and React
+- Fumadocs MDX and UI
+- MediaPipe Tasks Vision
+- TypeScript and Tailwind CSS
