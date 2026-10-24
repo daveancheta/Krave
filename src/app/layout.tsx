@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: `/home.png`, 
+        url: `/krave.jpg`, 
         width: 1200,
         height: 630,
         alt: "Krave Docs - Computer Vision Guides for Next.js",
@@ -83,8 +83,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Krave Docs - Computer Vision with MediaPipe and Next.js",
     description: siteDescription,
-    creator: "@yourhandle", 
-    images: [`/homePage.png`], 
+    creator: "@DaveAncheta088", 
+    images: [`/krave.jpg`], 
   },
   
   alternates: {
