@@ -108,8 +108,8 @@ export default function HandLandmarkModel() {
             context.clearRect(0, 0, canvas.width, canvas.height);
             const drawing = new DrawingUtils(context);
             for (const landmarks of result.landmarks) {
-              drawing.drawConnectors(landmarks, MediaPipeHandLandmarker.HAND_CONNECTIONS, { color: '#35e6a0', lineWidth: 4 });
-              drawing.drawLandmarks(landmarks, { color: '#ffffff', fillColor: '#ff5d73', lineWidth: 2, radius: 5 });
+              drawing.drawConnectors(landmarks, MediaPipeHandLandmarker.HAND_CONNECTIONS, { color: '#ffffff', lineWidth: 4 });
+              drawing.drawLandmarks(landmarks, { color: '#ffffff', fillColor: '#111827', lineWidth: 2, radius: 5 });
             }
           }
           setHandCount(result.landmarks.length);

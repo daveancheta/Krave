@@ -145,7 +145,7 @@ export default function FaceDetectionModel() {
               originX: canvas.width - box.originX - box.width,
             };
             drawingUtils.drawBoundingBox(mirroredBox, {
-              color: '#35e6a0',
+              color: '#ffffff',
               lineWidth: 4,
               fillColor: 'transparent',
             });
