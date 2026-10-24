@@ -1,0 +1,38 @@
+---
+title: Installation
+description: Add Krave computer vision components to a Next.js project.
+---
+
+Krave components are distributed through the [shadcn CLI](https://ui.shadcn.com/docs/cli). Add them directly to your project, then customize the source to fit your app.
+
+## Requirements
+
+- A Next.js project using TypeScript
+- Tailwind CSS
+- Node.js 20 or later
+
+## Initialize shadcn/ui
+
+If you haven't set up shadcn/ui in your project yet, run:
+
+```bash
+npx shadcn@latest init
+```
+
+Follow the prompts to configure your component directory and CSS variables. If shadcn/ui is already configured, continue to the next step.
+
+## Add a Krave component
+
+Choose a component guide and run its installation command from your project root:
+
+```bash
+npx shadcn@latest add @krave-docs/face-detection
+```
+
+For hand landmark tracking:
+
+```bash
+npx shadcn@latest add @krave-docs/hand-land-mark
+```
+
+The CLI adds the component source to your project so you can use and customize it like your other components. See the [Face Detection](/docs/task-vision/face-detection) and [Hand Land Marker](/docs/task-vision/hand-land-marker) guides for setup and usage examples.
