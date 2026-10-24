@@ -11,17 +11,17 @@ npx shadcn@latest add @krave-docs/face-detection
 
 ### Using Face Detection
 ```tsx title="src/page.tsx"
-import FaceDetection from "@/components/FaceDetection";
+import HandLandMark from "@/components/HandLandMark";
 
 export default function Home() {
-    return (
-        <FaceDetection
-            position="top-right"
-            boxColor="#7dd3fc"
-            labelColor="#0f172a"
-            size={4}
-        />
-    );
+  return (
+    <HandLandMark
+      position="top-right" //top-left, top-right, bottom-left, bottom-right
+      boxColor="#55e6c1"
+      labelColor="#f8fafc"
+      size={4}
+    />
+  );
 }
 ```
 ### Source Code

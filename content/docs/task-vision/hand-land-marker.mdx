@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <HandLandMark
       position="top-right" //top-left, top-right, bottom-left, bottom-right
-      SkeletonColor="#55e6c1"
-      DotColor="#f8fafc"
+      skeletonColor="#55e6c1"
+      dotColor="#f8fafc"
       size={4}
     />
   );
@@ -40,12 +40,12 @@ type CameraPosition = "top-left" | "top-right" | "bottom-left" | "bottom-right";
 
 interface HandLandmarkProps {
     position?: CameraPosition;
-    SkeletonColor: string;
-    DotColor: string;
+    skeletonColor: string;
+    dotColor: string;
     size: number;
 }
 
-function HandLandmark({ position = "bottom-right", SkeletonColor, DotColor, size
+function HandLandmark({ position = "bottom-right", skeletonColor, dotColor, size
 }: HandLandmarkProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
