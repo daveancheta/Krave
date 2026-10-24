@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   publisher: "Krave Docs",
   
   verification: {
-    google: "", 
+    google: "google89c9ecfc790b5ed5.html", 
   },
   
   robots: {
