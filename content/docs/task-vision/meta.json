@@ -2,6 +2,7 @@
   "title": "Task Vision",
   "pages": [
     "face-detection",
+    "face-land-marker",
     "hand-land-marker"
   ]
 }
