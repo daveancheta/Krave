@@ -16,8 +16,8 @@ export default function HomePage() {
         <div className="home-hero-copy">
           <p className="home-hero-note">Built with MediaPipe Tasks Vision</p>
           <p className="home-intro">
-            Examples for Next.js, with live demos and implementation guides you
-            can adapt to your own project.
+            Explore face detection, face landmark tracking, and hand tracking
+            with live demos and implementation guides for Next.js.
           </p>
           <div className="home-hero-actions">
             <HomeDemoButton />

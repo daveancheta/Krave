@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import FaceDetectionModel from '@/components/face-detection-model';
+import FaceLandmarkModel from '@/components/face-landmark-model';
 import HandLandmarkModel from '@/components/hand-landmark-model';
 
-type DemoMode = 'face' | 'hands';
+type DemoMode = 'face' | 'face-landmarks' | 'hands';
 
 export default function VisionPlayground() {
   const [activeDemo, setActiveDemo] = useState<DemoMode>('face');
@@ -25,6 +26,13 @@ export default function VisionPlayground() {
           </button>
           <button
             type="button"
+            aria-pressed={activeDemo === 'face-landmarks'}
+            onClick={() => setActiveDemo('face-landmarks')}
+          >
+            Face landmarks
+          </button>
+          <button
+            type="button"
             aria-pressed={activeDemo === 'hands'}
             onClick={() => setActiveDemo('hands')}
           >
@@ -33,7 +41,13 @@ export default function VisionPlayground() {
         </div>
       </div>
       <div key={activeDemo} className="vision-playground-panel">
-        {activeDemo === 'face' ? <FaceDetectionModel /> : <HandLandmarkModel />}
+        {activeDemo === 'face' ? (
+          <FaceDetectionModel />
+        ) : activeDemo === 'face-landmarks' ? (
+          <FaceLandmarkModel />
+        ) : (
+          <HandLandmarkModel />
+        )}
       </div>
     </section>
   );

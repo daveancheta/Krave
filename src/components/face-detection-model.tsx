@@ -257,7 +257,7 @@ export default function FaceDetectionModel() {
         </p>
       </div>
       <div className={`hand-stage ${cameraOn ? 'is-live' : ''}`}>
-        <div className="hand-camera-view face-camera-view">
+        <div className="hand-camera-view face-camera-view face-detection-camera-view">
           <video ref={videoRef} autoPlay playsInline muted aria-label="Live camera preview" />
           <canvas ref={canvasRef} aria-hidden="true" />
           {!cameraOn && (

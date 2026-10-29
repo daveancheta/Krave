@@ -303,5 +303,7 @@
 .hand-point-count span { color: #e5e7eb; font-size: .58rem; letter-spacing: .1em; }
 .face-demo { margin-top: 1.5rem; }
 .face-camera-view video { transform: scaleX(-1); }
-.face-camera-view canvas { transform: none; }
+.face-detection-camera-view canvas { transform: none; }
+.face-landmark-camera-view video,
+.face-landmark-camera-view canvas { transform: scaleX(-1); }
 @media (max-width: 640px) { .home-hero { grid-template-columns: 1fr; align-items: start; gap: 1.25rem; padding-top: 2rem; } .home-hero h1 { font-size: clamp(2.75rem, 12vw, 4.5rem); } .home-intro { max-width: 32rem; } .home-hero-actions { margin-top: 1rem; } .home-demo-button, .home-docs-button { height: 2.65rem; padding-inline: .85rem; } .vision-playground-heading { align-items: flex-start; flex-direction: column; gap: .75rem; } .vision-playground-label { flex-direction: column; gap: .2rem; } .vision-demo-switch { width: 100%; } .vision-demo-switch button { flex: 1; } .hand-demo, .face-demo { grid-template-columns: 1fr; margin-top: 3rem; } .vision-playground-panel .hand-demo, .vision-playground-panel .face-demo { margin-top: 0; } .hand-demo-copy { padding-bottom: 1rem; } .hand-demo-copy h2 { margin-top: .8rem; } .hand-demo-copy p { margin-top: .5rem; } .hand-toggle { margin-top: 1rem; } .hand-stage { min-height: 320px; } }

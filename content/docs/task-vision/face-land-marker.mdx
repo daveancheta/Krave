@@ -9,23 +9,8 @@ description: Configure real-time MediaPipe face landmark tracking in a Next.js a
 npx shadcn@latest add @krave-docs/face-land-marker
 ```
 
-### Using HandLandmark
+### Using FaceLandMarker
 ```tsx title="src/page.tsx"
-import FaceLandMarker from "@/components/FaceLandMarker";
-
-export default function Home() {
-  return (
-    <FaceLandMarker
-      position="top-right"
-      skeletonColor="#55e6c1"
-      dotColor="#f8fafc"
-      size={4}
-    />
-  );
-}
-```
-### Source Code
-```tsx title="src/components/HandLandMark.tsx"
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -118,9 +103,13 @@ function FaceLandMarker({
       }
     }
 
-    void createLandmarker();
+    const startupTimer = window.setTimeout(() => {
+      void createLandmarker();
+    }, 0);
+
     return () => {
       cancelled = true;
+      window.clearTimeout(startupTimer);
       runningRef.current = false;
       if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
       streamRef.current?.getTracks().forEach((track) => track.stop());
